@@ -1,4 +1,5 @@
-import 'package:animation_appp/home_page.dart';
+import 'package:animation_appp/flip_card_with_front_and_back_sides.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(),
-      home: HomePage(),
+      home: FlipCardWithFrontAndBackSides(),
     );
   }
 }
