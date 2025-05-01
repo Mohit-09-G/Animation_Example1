@@ -18,7 +18,7 @@ class _SmoothLiquidLoaderPageState extends State<SmoothLiquidLoaderPage>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 4), // Longer duration for smoothness
+      duration: const Duration(seconds: 4),
     )..repeat(); // Continuous flow to simulate the stream
 
     _animation = Tween<double>(begin: 0.0, end: 2 * pi).animate(
