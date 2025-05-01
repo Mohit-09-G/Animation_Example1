@@ -67,7 +67,6 @@ class SmoothLiquidPainter extends CustomPainter {
 
     Path path = Path();
 
-    // Create the base of the liquid container (flat bottom)
     path.moveTo(0, size.height);
 
     // Simulate a very smooth continuous fluid flow using the animation value
