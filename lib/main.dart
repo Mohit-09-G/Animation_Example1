@@ -1,5 +1,5 @@
-import 'package:animation_appp/flip_card_with_front_and_back_sides.dart';
-import 'package:animation_appp/orbit_rotaion.dart';
+import 'package:animation_appp/flaoting_button.dart';
+import 'package:animation_appp/liquor.dart';
 
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(),
-      home: OrbitingAnimationPage(),
+      home: AnimatedFabExample(),
     );
   }
 }
