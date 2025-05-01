@@ -2,35 +2,46 @@ name: Flutter CI/CD
 
 on:
   push:
-    branches: [main]
+    branches: [main]  # Trigger on push to main branch
   pull_request:
-    branches: [main]
+    branches: [main]  # Trigger on pull request to main branch
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner for CI
+    
     steps:
+      # Step 1: Checkout the code
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # Step 2: Set up Flutter environment with the specified version
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.27.1'
+          flutter-version: '3.27.1'  # Ensure this matches the version you are using locally
 
+      # Step 3: Clean any cached files from previous builds (helps prevent errors)
+      - name: Clear Flutter Cache
+        run: flutter clean
+
+      # Step 4: Install dependencies (flutter packages)
       - name: Install Dependencies
-        run: flutter pub get
+        run: flutter pub get --verbose  # Use verbose to check for detailed errors
 
+      # Step 5: Analyze the code for issues (linting, static analysis)
       - name: Analyze Code
         run: flutter analyze
 
+      # Step 6: Run tests to ensure code quality
       - name: Run Tests
         run: flutter test
 
+      # Step 7: Build the APK for release
       - name: Build APK
-        run: flutter build apk --release
+        run: flutter build apk --release --verbose  # Add verbose output for more details in case of failure
 
+      # Step 8: Upload the generated APK as an artifact
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
