@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 class GradientPulsePage extends StatefulWidget {
   const GradientPulsePage({super.key});
